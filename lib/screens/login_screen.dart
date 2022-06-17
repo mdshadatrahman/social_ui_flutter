@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/curve_clipper.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -18,11 +20,14 @@ class _LoginScreenState extends State<LoginScreen> {
           height: height,
           child: Column(
             children: [
-              Image(
-                height: height * .4,
-                width: double.infinity,
-                image: AssetImage('assets/images/login_background.jpg'),
-                fit: BoxFit.cover,
+              ClipPath(
+                clipper: CurveClipper(),
+                child: Image(
+                  height: height * .4,
+                  width: double.infinity,
+                  image: AssetImage('assets/images/login_background.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
               Text(
                 'frenzy'.toUpperCase(),
