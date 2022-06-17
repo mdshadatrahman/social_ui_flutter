@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/curve_clipper.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -54,7 +55,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-
               SizedBox(height: 10),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -72,10 +72,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: true,
                 ),
               ),
-
               SizedBox(height: 40),
               GestureDetector(
-                onTap: (){},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => HomeScreen(),
+                    ),
+                  );
+                },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 60),
                   alignment: Alignment.center,
@@ -84,7 +90,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Text('Login',
+                  child: Text(
+                    'Login',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
@@ -94,12 +101,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-
               Expanded(
                 child: Align(
                   alignment: FractionalOffset.bottomCenter,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {},
                     child: Container(
                       height: 80,
                       alignment: Alignment.center,
@@ -116,8 +122,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-
-
             ],
           ),
         ),
