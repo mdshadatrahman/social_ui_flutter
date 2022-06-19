@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_ui/widgets/custom_drawer.dart';
 
-import '../data/data.dart';
 import '../models/user_model.dart';
 import '../widgets/post_carousel.dart';
 import '../widgets/profile_clipper.dart';
