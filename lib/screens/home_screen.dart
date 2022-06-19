@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:social_ui/data/data.dart';
-import 'package:social_ui/models/user_model.dart';
 
 import '../widgets/following_users.dart';
 
