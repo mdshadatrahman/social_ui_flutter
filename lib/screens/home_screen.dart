@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:social_ui/data/data.dart';
 import 'package:social_ui/widgets/post_carousel.dart';
 
+import '../widgets/custom_drawer.dart';
 import '../widgets/following_users.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -65,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen>
           ],
         ),
       ),
+      drawer: CustomDrawer(),
       body: ListView(
         children: [
           FollowingWidget(),
