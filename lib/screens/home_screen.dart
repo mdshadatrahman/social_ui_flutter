@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:social_ui/data/data.dart';
+import 'package:social_ui/widgets/post_carousel.dart';
 
 import '../widgets/following_users.dart';
 
@@ -13,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  late PageController _pageController;
 
   late int whichTab;
 
@@ -20,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen>
   initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    _pageController = PageController(initialPage: 0, viewportFraction: 0.8);
   }
 
   @override
@@ -63,29 +67,20 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       body: ListView(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
-                child: Text(
-                  'Following',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 2,
-                  ),
-                ),
-              ),
-              Container(
-                height: 80,
-                color: Colors.white,
-                child: FollowingWidget(),
-              ),
-            ],
-          )
+          FollowingWidget(),
+          PostCarousel(
+            pageController: _pageController,
+            title: 'Posts',
+            posts: posts,
+          ),
+          // PostsCarousel(
+          //   pageController: _pageController,
+          //   title: 'Posts',
+          //   posts: posts,
+          // ),
         ],
       ),
     );
   }
 }
+
